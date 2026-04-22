@@ -33,7 +33,8 @@ Exemplo de um app flutter que **abre dados Mockup** JSON e cria um quiz, uma lis
 - O projeto irá abrir a tela de Splash com uma animação, clique em entrar e navegue pelos produtos.
 
 ## Atividade
-Semelhante a este quiz, agora em Flutter desenvolva o mesmo quiz que já fez com **Mit App Inventor no inicio das aulas**, crie suas questões no modelo JSON a seguir, porém acrescente mais questões, pelo menos 20 no seu quiz.
+Após estudar, executar e testar este projeto.
+<br>Semelhante a este, agora em **Flutter** desenvolva o Quiz que já fez com **Mit App Inventor** no inicio das aulas de Mobile, digite suas questões no modelo JSON abaixo, porém acrescente mais questões, pelo menos 20 no seu quiz.
 ```json
 [
     {
