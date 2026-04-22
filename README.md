@@ -31,3 +31,4 @@ Exemplo de um app flutter que **abre dados Mockup** JSON e cria um quiz, uma lis
 - 3 Navegue até o arquivo lib/main.dart e dê **play** ou execute o comando `flutter run` para rodar o projeto
 - 4 Escolha navegador ou um emulador para testar, ou abra o arquivo */lib/main.dart* e clique em Play.
 - O projeto irá abrir a tela de Splash com uma animação, clique em entrar e navegue pelos produtos.
+
