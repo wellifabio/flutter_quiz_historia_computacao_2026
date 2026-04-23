@@ -101,6 +101,19 @@ class _HomeState extends State<Home> {
                     "Questão nº ${indice + 1}",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
+                  ClipRRect(
+                    //Barra de progresso linear com bordas arredondadas
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ), // Arredonda as bordas
+                    child: LinearProgressIndicator(
+                      value:
+                          1 / perguntas.length * (indice + 1), // % de progresso
+                      minHeight: 15, // Altura da barra
+                      backgroundColor: AppColors.p2,
+                      color: AppColors.p4,
+                    ),
+                  ),
                   CircleAvatar(
                     radius: 50.0,
                     backgroundColor: AppColors.p4,

@@ -21,11 +21,19 @@ abstract class AppTheme {
       ),
       bodyMedium: TextStyle(color: AppColors.p4, fontSize: 14),
       labelMedium: TextStyle(color: AppColors.p4, fontSize: 16),
+      displayMedium: TextStyle(
+        color: AppColors.p4,
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+      ),
+      displaySmall: TextStyle(
+        color: AppColors.p4,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      border: OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.p2),
-      ),
+      border: OutlineInputBorder(borderSide: BorderSide(color: AppColors.p2)),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.p3),
       ),
@@ -33,7 +41,8 @@ abstract class AppTheme {
         borderSide: BorderSide(color: AppColors.p4, width: 2.0),
       ),
       labelStyle: TextStyle(color: AppColors.p4),
-      hintStyle: TextStyle(color: AppColors.p3),
+      hintStyle: TextStyle(color: AppColors.p4),
+      fillColor: AppColors.p4,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
