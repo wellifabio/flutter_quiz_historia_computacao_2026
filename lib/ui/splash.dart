@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_historia_computacao/root/colors.dart';
 import 'home.dart';
 
 class Splash extends StatefulWidget {
@@ -89,6 +90,11 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.p4,
+                ),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Digite seu nome',

@@ -72,7 +72,7 @@ class _HomeState extends State<Home> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text(titulo),
+          title: Text(titulo, style: TextStyle(color: AppColors.p4)),
           content: Text(texto),
           actions: [
             ElevatedButton(
