@@ -16,6 +16,9 @@ Exemplo de um app flutter que **abre dados Mockup** JSON e cria um quiz, uma lis
 |Menu dropDown "Select"|DropdownButton<dynamic>()|
 |Botões de controle de conteúdos em tela|ElevatedButton()|
 |Botões de opção|RadioGroup()|
+|Barra de progresso|ClipRRect()|
+|Salvar e abrir arquivo texto|getApplicationDocumentsDirectory()|
+|Icone do aplicativo|pubspec.yaml|
 
 |![Splash](./assets/info/screenshot01.png)|![Home](./assets/info/screenshot02.png)|![Home](./assets/info/screenshot03.png)|
 |:-:|:-:|:-:|
@@ -159,3 +162,15 @@ Após estudar, executar e testar este projeto.
     }
 ]
 ```
+- Estude todos os widgets e funcionalidades
+- Barra de progresso
+- Manipulação de arquivos de texto
+
+### Bbs:
+O arquivo salvo por getApplicationDocumentsDirectory() do pacotepath_provider` fica no diretório privado da aplicação, destinado a dados gerados pelo usuário ou dados que não podem ser recriados pelo app. O local exato varia conforme o sistema operacional.
+- No Android:
+    - O caminho geralmente é:
+```
+/data/user/0/com.seu.pacote/app_flutter/ 
+```
+Onde encontrar: Esse é um diretório interno privado, não acessível pelo gerenciador de arquivos do usuário sem root. O arquivo só é visível em um emulador ou dispositivo com debug ativado usando o "Device File Explorer" no Android Studio.
