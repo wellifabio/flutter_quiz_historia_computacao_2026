@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import '../root/file.dart';
 
 class Result extends StatefulWidget {
@@ -15,6 +16,7 @@ class Result extends StatefulWidget {
 class _ResultState extends State<Result> {
   final fileManager = FileManager();
   String fileData = "";
+  List<dynamic> resultados = [];
 
   @override
   initState() {
@@ -46,9 +48,26 @@ class _ResultState extends State<Result> {
 
   void loadResults() async {
     String data = await fileManager.readData();
+    resultados = [];
     setState(() {
       fileData = data;
+      carregarLista();
     });
+  }
+
+  Future<void> carregarLista() async {
+    List<String> linhas = fileData != "" ? fileData.split("\n") : [];
+    for (int i = 0; i < linhas.length; i++) {
+      List<String> partes = linhas[i].split(",");
+      if (partes.length >= 3) {
+        resultados.add({
+          "data": partes[0],
+          "nome": partes[1],
+          "pontos": partes[2],
+          "total": partes.length > 3 ? partes[3] : "",
+        });
+      }
+    }
   }
 
   @override
@@ -60,6 +79,7 @@ class _ResultState extends State<Result> {
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 40,
           children: [
+            Image.asset('assets/icone.png', width: 250),
             Text(
               "Parabéns ${widget.nome ?? ''} você acertou ${widget.pontos} questões \nde um total de ${widget.total ?? 0} questões",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -76,7 +96,32 @@ class _ResultState extends State<Result> {
                 ),
               ],
             ),
-            Padding(padding: const EdgeInsets.all(18.0), child: Text(fileData)),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(12.0),
+                child: resultados.isNotEmpty
+                    ? ListView.separated(
+                        itemBuilder: (context, i) {
+                          return ListTile(
+                            leading: Text(
+                              "${DateFormat('dd/MM/yyyy').format(DateTime.parse(resultados[i]["data"].toString()))}\n${DateFormat('hh:mm').format(DateTime.parse(resultados[i]["data"].toString()))}h",
+                              textAlign: TextAlign.center,
+                            ),
+                            title: Text(resultados[i]["nome"]),
+                            subtitle: Text(
+                              "Total de questões: ${resultados[i]["total"]}",
+                            ),
+                            trailing: Text(
+                              "Acertos: ${resultados[i]["pontos"]}",
+                            ),
+                          );
+                        },
+                        separatorBuilder: (_, _) => Divider(),
+                        itemCount: resultados.length,
+                      )
+                    : Center(child: Text("Nenhum resultado registrado.")),
+              ),
+            ),
           ],
         ),
       ),

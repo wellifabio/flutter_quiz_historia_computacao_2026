@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
           actions: [
             ElevatedButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: Text("Fechar"),
+              child: Text("Ok"),
             ),
           ],
         ),
@@ -88,7 +88,12 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("História da computação")),
+      appBar: AppBar(
+        title: Text("História da computação"),
+        actions: [
+          ElevatedButton(onPressed: irParaResult, child: Text("Finalizar")),
+        ],
+      ),
       body: Padding(
         padding: EdgeInsets.all(18.0),
         child: perguntas.isEmpty
